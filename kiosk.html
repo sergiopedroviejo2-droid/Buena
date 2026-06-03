@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentia - Kiosko de Llegada</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="kiosk.css">
+</head>
+<body>
+    <div class="kiosk-container">
+        <!-- Step 1: DNI Input -->
+        <div id="step-dni" class="kiosk-card active">
+            <div class="icon-container">
+                <i class="fa-solid fa-address-card"></i>
+            </div>
+            
+            <h1 class="clinic-name" id="clinicNameDisplay">Clínica Dentia</h1>
+            <h2 class="title">Registro de Llegada</h2>
+            <p class="subtitle">Introduzca su DNI para buscar su cita</p>
+            
+            <div class="input-group">
+                <label for="dniInput">DNI / NIE</label>
+                <input type="text" id="dniInput" placeholder="Ej: 12345678A" autocomplete="off" autofocus>
+            </div>
+            
+            <button id="searchBtn" class="btn-primary">Buscar Citas</button>
+            <div id="errorMsg" class="error-msg hidden">No se encontraron pacientes con este DNI.</div>
+        </div>
+
+        <!-- Step 2: Select Appointment -->
+        <div id="step-appointments" class="kiosk-card hidden">
+            <div class="icon-container">
+                <i class="fa-solid fa-stethoscope"></i>
+            </div>
+            
+            <h1 class="clinic-name" id="clinicNameDisplay2">Clínica Dentia</h1>
+            <h2 class="title">Sus Citas de Hoy</h2>
+            <p class="subtitle">Seleccione su cita para confirmar su llegada</p>
+            
+            <div id="appointmentsList" class="appointments-list">
+                <!-- Appointments will be injected here -->
+            </div>
+            
+            <div id="noAppointmentsMsg" class="empty-state hidden">
+                <i class="fa-solid fa-calendar-xmark" style="font-size: 3rem; color: #cbd5e1; margin-bottom: 1rem;"></i>
+                <p style="color: #475569; font-weight: 500; font-size: 1.1rem; margin-bottom: 0.5rem;">No se encontraron citas para hoy</p>
+                <p style="color: #64748b; font-size: 0.9rem;">Verifique su DNI o consulte en recepción</p>
+            </div>
+
+            <button id="backBtn" class="btn-secondary" style="margin-top: 2rem;">
+                <i class="fa-solid fa-arrow-left"></i> Volver
+            </button>
+        </div>
+
+        <!-- Step 3: Success -->
+        <div id="step-success" class="kiosk-card hidden">
+            <div class="icon-container success-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            
+            <h1 class="clinic-name" id="clinicNameDisplay3">Clínica Dentia</h1>
+            <h2 class="title" style="color: #10b981;">¡Llegada Confirmada!</h2>
+            <p class="subtitle">Por favor, tome asiento en la sala de espera.</p>
+            <p class="note" style="margin-top: 1rem; color: #64748b; font-size: 0.95rem;">El especialista le llamará en breve.</p>
+        </div>
+    </div>
+
+    <!-- Spinner Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="kiosk.js"></script>
+</body>
+</html>
