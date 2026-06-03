@@ -3,6 +3,22 @@
     {
       "src": "app.py",
       "use": "@vercel/python"
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Assets/**",
+      "use": "@vercel/static"
     }
   ],
   "rewrites": [
